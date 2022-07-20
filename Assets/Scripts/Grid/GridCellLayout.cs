@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid
+public class GridCellLayout
 {
     private GridCellData[,] grid;
 
     private int gridWidth;
     private int gridHeight;
 
-    public Grid(int width, int height)
+    public GridCellLayout(int width, int height)
     {
         gridWidth = width;
         gridHeight = height;
@@ -45,9 +45,9 @@ public class Grid
         return cellType == CellType.Empty || cellType == CellType.Road;
     }
     
-    public List<Point> GetAdjacentCells(Point cell, bool isAgent)
+    public List<Point> GetAdjacentCells(Point cell)
     {
-        return GetWalkableAdjacentCells((int)cell.X, (int)cell.Y, isAgent);
+        return GetWalkableAdjacentCells((int)cell.X, (int)cell.Y);
     }
 
     public float GetCostOfEnteringCell(Point cell)
@@ -77,7 +77,7 @@ public class Grid
         return adjacentCells;
     }
 
-    private List<Point> GetWalkableAdjacentCells(int x, int y, bool isAgent)
+    private List<Point> GetWalkableAdjacentCells(int x, int y)
     {
         List<Point> adjacentCells = GetAllAdjacentCells(x, y);
         for (int i = adjacentCells.Count - 1; i >= 0; i--)
