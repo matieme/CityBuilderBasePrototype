@@ -7,8 +7,6 @@ public class RoadManager : MonoBehaviour
 
     public List<Vector3Int> temporaryPlacementPositions = new List<Vector3Int>();
     public List<Vector3Int> roadPositionsToRecheck = new List<Vector3Int>();
-
-    public GameObject roadStraight;
     public RoadFixer roadFixer;
 
     public void PlaceRoad(Vector3Int position)
@@ -22,10 +20,11 @@ public class RoadManager : MonoBehaviour
         {
             return;
         }
-            
+        
         temporaryPlacementPositions.Clear();
+        roadPositionsToRecheck.Clear();
         temporaryPlacementPositions.Add(position);
-        placementManager.PlaceTemporaryStructure(position, roadStraight, CellType.Road);
+        placementManager.PlaceTemporaryStructure(position, roadFixer.roadModelData.RoadStraight, CellType.Road);
         FixRoadPrefabs();
     }
 

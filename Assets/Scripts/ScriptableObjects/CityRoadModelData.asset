@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82f3342090573e4a90cb116e3621d1e, type: 3}
+  m_Name: CityRoadModelData
+  m_EditorClassIdentifier: 
+  DeadEnd: {fileID: 1084652840740126620, guid: f5fd1f8806a62124cab0f0df9c16b065, type: 3}
+  RoadStraight: {fileID: 1084652840740126620, guid: 51a780ebdc660f34ebf5e52592db8e5c, type: 3}
+  Corner: {fileID: 1084652840740126620, guid: 6b70ba232aff3ed449ab54e575d76a6f, type: 3}
+  ThreeWay: {fileID: 1084652840740126620, guid: 8b364a7576bec7549897cf3c2c08d04f, type: 3}
+  FourWay: {fileID: 1084652840740126620, guid: 6ab6b6401d9c2d845929e9cbcea2dd58, type: 3}

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RoadFixer : MonoBehaviour
 {
-    [SerializeField] private RoadModelData roadModelData;
+    public RoadModelData roadModelData;
 
     public void FixRoadAtPosition(PlacementManager placementManager, Vector3Int temporaryPosition)
     {
