@@ -490,11 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7fcdbb58aeafa418d84f89fe91dc8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadEnd: {fileID: 1084652840740126620, guid: fbdbf0f6c86d6d84b9a62a3531d4c287, type: 3}
-  roadStraight: {fileID: 1084652840740126620, guid: fbdbf0f6c86d6d84b9a62a3531d4c287, type: 3}
-  corner: {fileID: 1084652840740126620, guid: 7791b4ea1379b4b4bb9333d58ee8b071, type: 3}
-  threeWay: {fileID: 1084652840740126620, guid: a896af4df1d411b48b3705b16aedd196, type: 3}
-  fourWay: {fileID: 1084652840740126620, guid: d4cf3ad2f48d1024f8a9c52faa36148b, type: 3}
+  roadModelData: {fileID: 11400000, guid: a900232925a093747b01ea3af5634ab4, type: 2}
 --- !u!1 &1907274503
 GameObject:
   m_ObjectHideFlags: 0
