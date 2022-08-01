@@ -76,6 +76,48 @@ public class GridCellLayout
         }
         return adjacentCells;
     }
+    
+    public List<Point> GetAdjacentCellsOfType(int x, int y, CellType type)
+    {
+        List<Point> adjacentCells = GetAllAdjacentCells(x, y);
+        for (int i = adjacentCells.Count - 1; i >= 0; i--)
+        {
+            if (GetGridCellByPosition(new Vector3Int(adjacentCells[i].X, 0,adjacentCells[i].Y)).Type != type)
+            {
+                adjacentCells.RemoveAt(i);
+            }
+        }
+        return adjacentCells;
+    }
+    
+    /// <summary>
+    /// Returns array [Left neighbour, Top neighbour, Right neighbour, Down neighbour]
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
+    public CellType[] GetAllAdjacentCellTypes(int x, int y)
+    {
+        CellType[] neighbours = { CellType.None, CellType.None, CellType.None, CellType.None };
+        
+        if (x > 0)
+        {
+            neighbours[0] = GetGridCellByPosition(new Vector3Int(x - 1, 0, y)).Type;
+        }
+        if (x < gridWidth - 1)
+        {
+            neighbours[2] = GetGridCellByPosition(new Vector3Int(x + 1, 0, y)).Type;
+        }
+        if (y > 0)
+        {
+            neighbours[3] = GetGridCellByPosition(new Vector3Int(x, 0, y - 1)).Type;
+        }
+        if (y < gridHeight - 1)
+        {
+            neighbours[1] = GetGridCellByPosition(new Vector3Int(x, 0, y + 1)).Type;
+        }
+        return neighbours;
+    }
 
     private List<Point> GetWalkableAdjacentCells(int x, int y)
     {
