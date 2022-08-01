@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82f3342090573e4a90cb116e3621d1e, type: 3}
   m_Name: RoadModelData
   m_EditorClassIdentifier: 
-  DeadEnd: {fileID: 0}
-  RoadStraight: {fileID: 0}
-  Corner: {fileID: 0}
-  ThreeWay: {fileID: 0}
-  FourWay: {fileID: 0}
+  DeadEnd: {fileID: 1084652840740126620, guid: fbdbf0f6c86d6d84b9a62a3531d4c287, type: 3}
+  RoadStraight: {fileID: 1084652840740126620, guid: fbdbf0f6c86d6d84b9a62a3531d4c287, type: 3}
+  Corner: {fileID: 1084652840740126620, guid: 7791b4ea1379b4b4bb9333d58ee8b071, type: 3}
+  ThreeWay: {fileID: 1084652840740126620, guid: a896af4df1d411b48b3705b16aedd196, type: 3}
+  FourWay: {fileID: 1084652840740126620, guid: d4cf3ad2f48d1024f8a9c52faa36148b, type: 3}
