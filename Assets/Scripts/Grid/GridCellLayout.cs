@@ -124,7 +124,7 @@ public class GridCellLayout
         List<Point> adjacentCells = GetAllAdjacentCells(x, y);
         for (int i = adjacentCells.Count - 1; i >= 0; i--)
         {
-            if (IsGridCellWalkable(GetGridCellByPosition(new Vector3Int(adjacentCells[i].X, 0, adjacentCells[i].Y)).Type)) 
+            if (!IsGridCellWalkable(GetGridCellByPosition(new Vector3Int(adjacentCells[i].X, 0, adjacentCells[i].Y)).Type)) 
             {
                 adjacentCells.RemoveAt(i);
             }

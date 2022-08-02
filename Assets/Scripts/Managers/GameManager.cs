@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InputManager.Instance.OnMouseClick += HandleMouseClick;
+        InputManager.Instance.OnMouseHold += HandleMouseClick;
+        InputManager.Instance.OnMouseUp += roadManager.FinishPlacingRoad;
     }
 
     private void HandleMouseClick(Vector3Int position)

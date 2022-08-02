@@ -6,7 +6,10 @@ public class PlacementManager : MonoBehaviour
     public int width;
     public int height;
     private GridCellLayout placementGridCellLayout;
+    
     private Dictionary<Vector3Int, StructureModel> temporaryStructureObjects = new Dictionary<Vector3Int, StructureModel>();
+    private Dictionary<Vector3Int, StructureModel> structureObjects = new Dictionary<Vector3Int, StructureModel>();
+
 
     private void Start()
     {
@@ -55,12 +58,47 @@ public class PlacementManager : MonoBehaviour
         }
         return neighbours;
     }
+    
+    internal void RemoveAllTemporaryStructures()
+    {
+        foreach (var structure in temporaryStructureObjects.Values)
+        {
+            var position = Vector3Int.FloorToInt(structure.transform.position);
+            placementGridCellLayout.SetGridCellData(new Vector3Int(position.x, 0, position.z), CellType.Empty);
+            Destroy(structure.gameObject);
+        }
+        temporaryStructureObjects.Clear();
+    }
 
+    internal List<Vector3Int> GetPathBetween(Vector3Int startPosition, Vector3Int endPosition)
+    {
+        var resultPath = GridSearch.AStarSearch(placementGridCellLayout, new Point(startPosition.x, startPosition.z), new Point(endPosition.x, endPosition.z));
+        List<Vector3Int> path = new List<Vector3Int>();
+        foreach (Point point in resultPath)
+        {
+            path.Add(new Vector3Int(point.X, 0, point.Y));
+        }
+        return path;
+    }
+    
+    internal void AddTemporaryStructuresToStructureDictionary()
+    {
+        foreach (var structure in temporaryStructureObjects)
+        {
+            structureObjects.Add(structure.Key, structure.Value);
+        }
+        temporaryStructureObjects.Clear();
+    }
+    
     public void ModifyStructureModel(Vector3Int position, GameObject newModel, Quaternion rotation)
     {
         if (temporaryStructureObjects.ContainsKey(position))
         {
             temporaryStructureObjects[position].SwapModel(newModel, rotation);
+        }
+        else if (structureObjects.ContainsKey(position))
+        {
+            structureObjects[position].SwapModel(newModel, rotation);
         }
     }
     
