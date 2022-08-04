@@ -3189,9 +3189,10 @@ MonoBehaviour:
     weight: 0.775
   bigStructuresPrefabs:
   - prefab: {fileID: 369587459728828130, guid: 14311e537c8d09b45bfda232d15ef0d2, type: 3}
-    weight: 0
+    weight: 0.365
   - prefab: {fileID: 369587459728828130, guid: 48a238ac7d032e6438712a49e4ddb5a4, type: 3}
-    weight: 0
+    weight: 0.345
+  particlePrefab: {fileID: 1450638143650814, guid: dca6639d584e3504ebec2f823f65b873, type: 3}
   placementManager: {fileID: 1696084439}
 --- !u!1 &1728169312
 GameObject:

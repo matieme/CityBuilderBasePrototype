@@ -11,7 +11,7 @@ public class StructureManager : MonoBehaviour
     private float[] specialWeights;
     private float[] bigStructureWeights;
 
-    
+    [SerializeField] private GameObject particlePrefab;
     public PlacementManager placementManager;
 
     private void Start()
@@ -27,15 +27,17 @@ public class StructureManager : MonoBehaviour
         {
             int randomIndex = GetRandomWeightedIndex(houseWeights);
             placementManager.PlaceObjectOnTheMap(position, housesPrefabs[randomIndex].prefab, CellType.Structure);
+            CreatePlacementEffects(position);
         }
     }
-
+    
     public void PlaceSpecial(Vector3Int position)
     {
         if (CheckPositionBeforePlacement(position))
         {
             int randomIndex = GetRandomWeightedIndex(specialWeights);
             placementManager.PlaceObjectOnTheMap(position, specialPrefabs[randomIndex].prefab, CellType.Structure);
+            CreatePlacementEffects(position);
         }
     }
     
@@ -47,9 +49,16 @@ public class StructureManager : MonoBehaviour
         {
             int randomIndex = GetRandomWeightedIndex(bigStructureWeights);
             placementManager.PlaceObjectOnTheMap(position, bigStructuresPrefabs[randomIndex].prefab, CellType.Structure, width, height);
+            CreatePlacementEffects(position);
         }
     }
     
+    private void CreatePlacementEffects(Vector3Int position)
+    {
+        GameObject particlesInstance = Instantiate(particlePrefab);
+        particlesInstance.transform.localPosition = position + new Vector3(0.5f, 0, 0.5f);
+    }
+
     private bool CheckBigStructure(Vector3Int position, int width, int height)
     {
         bool nearRoad = false;
