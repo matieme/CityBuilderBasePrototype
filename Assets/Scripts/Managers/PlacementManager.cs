@@ -48,6 +48,21 @@ public class PlacementManager : MonoBehaviour
         return structureModel;
     }
     
+    internal void PlaceObjectOnTheMap(Vector3Int position, GameObject structurePrefab, CellType type, int width = 1, int height = 1)
+    {
+        StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < height; z++)
+            {
+                var newPosition = position + new Vector3Int(x, 0, z);
+                placementGridCellLayout.SetGridCellData(newPosition, type);
+                structureObjects.Add(newPosition, structure);
+            }
+        }
+
+    }
+
     internal List<Vector3Int> GetNeighboursOfTypeFor(Vector3Int position, CellType type)
     {
         var neighbourVertices = placementGridCellLayout.GetAdjacentCellsOfType(position.x, position.z, type);
